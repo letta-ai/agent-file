@@ -191,7 +191,7 @@
       "type": "conditional",
       "default_child": "analyze_and_search_tool",
       "child_output_mapping": {
-        "True": "prepare_final_report"
+        "Confirming: research progress is complete.": "prepare_final_report"
       },
       "require_output_mapping": false
     },
