@@ -1,7 +1,7 @@
 # Workflow (or Graph) Agent
 Letta agents are by default designed to be stateful and have advanced memory capabilities. However, you can still use Letta to design agentic workflows that combined LLMs and tool execution in deterministic ways. To do this, we can configure the agent to disable the memory functionality to essentially create a *stateless* workflow agent. 
 
-This example agent uses mock tools to retrieve a candidate, evaluate them for a role, and either draft an email to them or reject them. Each time you invoke the agent is independent: there is no memory accross invocations, making it a "workflow". 
+This example agent uses mock tools to retrieve a candidate, evaluate them for a role, and either draft an email to them or reject them. Each time you invoke the agent is independent: there is no memory across invocations, making it a "workflow". 
 
 <img width="1351" alt="image" src="https://github.com/user-attachments/assets/ce2c91e6-8b51-471a-8861-15b2111049fd" />
 

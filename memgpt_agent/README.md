@@ -5,7 +5,7 @@ By default, Letta agents are extensions of MemGPT agents. If you create an agent
 
 
 ### Tools 
-MemGPT agent use a set of tools to manage long term memory: 
+MemGPT agent uses a set of tools to manage long-term memory: 
 * `core_memory_append`: Append new information to the agent's core memory.
 * `core_memory_replace`: Replace existing information in the agent's core memory.
 * `archival_memory_search`: Search the agent's archival memory for relevant information.
