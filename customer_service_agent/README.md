@@ -1,5 +1,5 @@
 # Customer Service Agent
-This is an example of a customer service agent which has long term memory and can autonomously call tools to resolve customer service issues. The customer service agent is a MemGPT agent (with all the MemGPT base tools) with additional tools for customer serivce. 
+This is an example of a customer service agent which has long-term memory and can autonomously call tools to resolve customer service issues. The customer service agent is a MemGPT agent (with all the MemGPT base tools) with additional tools for customer service. 
 
 The agent has the following dummy tools attached: 
 

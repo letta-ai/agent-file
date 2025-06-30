@@ -3,7 +3,7 @@ from typing import List
 
 def analyze_and_search_tool(agent_state: "AgentState", summary: str, gaps: List[str], next_search_topic: str):
     """
-    Use this tool to analyze your current research summary and gaps and choose a new topic to search in `next_search_topic`. This tool will search the web for information related to the provide topic, and extract relevant information from webpages found through the search. Search results are not returned by the tool, but saved in the <research_state> memory block.
+    Use this tool to analyze your current research summary and gaps and choose a new topic to search in `next_search_topic`. This tool will search the web for information related to the provided topic, and extract relevant information from webpages found through the search. Search results are not returned by the tool, but saved in the <research_state> memory block.
 
     Args:
         summary (str): A summary of the findings
