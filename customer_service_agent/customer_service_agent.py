@@ -1,6 +1,9 @@
 from letta_client import Letta
+import os
+from dotenv import load_dotenv
 
-client = Letta(base_url = "http://localhost:8283")
+load_dotenv()
+client = Letta(base_url="https://api.letta.com", token=os.getenv("LETTA_API_KEY"))
 
 def terminate_chat(reason: str):
     """
@@ -94,7 +97,6 @@ agent = client.agents.create(
         }
     ], 
     model="openai/gpt-4o-mini", 
-    embedding="openai/text-embedding-ada-002", 
     tool_ids = [
         terminate_chat_tool.id, 
         escalate_tool.id, 
@@ -106,3 +108,7 @@ agent = client.agents.create(
 print(agent.id)
 print("tools", [t.name for t in agent.tools])
 
+# Export agent to .af file
+import json
+with open("customer_service.af", "w") as f:
+    json.dump(client.agents.export_file(agent_id=agent.id), f, indent=2)

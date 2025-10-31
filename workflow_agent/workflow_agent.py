@@ -1,4 +1,6 @@
 from letta_client import Letta 
+import os
+from dotenv import load_dotenv
 
 def retrieve_candidate(candidate_name: str): 
     """ 
@@ -42,7 +44,8 @@ def reject(candidate_name: str):
     print(f"Rejecting {candidate_name}")
 
 
-client = Letta(base_url = "http://localhost:8283")
+load_dotenv()
+client = Letta(base_url="https://api.letta.com", token=os.getenv("LETTA_API_KEY"))
 retrieve_candidate_tool = client.tools.upsert_from_function(func=retrieve_candidate)
 evaluate_candidate_tool = client.tools.upsert_from_function(func=evaluate_candidate)
 send_email_tool = client.tools.upsert_from_function(func=send_email)
@@ -55,7 +58,6 @@ agent = client.agents.create(
     description="An simple workflow agent that has memory disabled, so that each request is independent.",
     memory_blocks=[], 
     model="openai/gpt-4o-mini", 
-    embedding="openai/text-embedding-ada-002", 
     include_base_tools=False, 
     message_buffer_autoclear=True,
     initial_message_sequence=[],
@@ -93,5 +95,7 @@ agent = client.agents.create(
 print(agent.id)
 print("tools", [t.name for t in agent.tools])
 
-
-
+# Export agent to .af file
+import json
+with open("outreach_workflow_agent.af", "w") as f:
+    json.dump(client.agents.export_file(agent_id=agent.id), f, indent=2)
