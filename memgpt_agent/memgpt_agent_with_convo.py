@@ -1,6 +1,9 @@
 from letta_client import Letta
+import os
+from dotenv import load_dotenv
 
-client = Letta(base_url = "http://localhost:8283")
+load_dotenv()
+client = Letta(base_url="https://api.letta.com", token=os.getenv("LETTA_API_KEY"))
 
 cs_phd = """
 This is what I know so far about the user, I should expand this as I learn more about them.
@@ -45,10 +48,13 @@ agent = client.agents.create(
             "value": sam_pov
         }
     ], 
-    model="openai/gpt-4-0613", 
-    embedding="openai/text-embedding-ada-002", 
+    model="openai/gpt-4o-mini", 
 )
 
+print(agent.id)
+print("tools", [t.name for t in agent.tools])
 
-
-
+# Export agent to .af file
+import json
+with open("memgpt_agent_with_convo.af", "w") as f:
+    json.dump(client.agents.export_file(agent_id=agent.id), f, indent=2)
