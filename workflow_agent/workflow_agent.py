@@ -45,7 +45,7 @@ def reject(candidate_name: str):
 
 
 load_dotenv()
-client = Letta(base_url="https://api.letta.com", token=os.getenv("LETTA_API_KEY"))
+client = Letta(api_key=os.getenv("LETTA_API_KEY"))
 retrieve_candidate_tool = client.tools.upsert_from_function(func=retrieve_candidate)
 evaluate_candidate_tool = client.tools.upsert_from_function(func=evaluate_candidate)
 send_email_tool = client.tools.upsert_from_function(func=send_email)
