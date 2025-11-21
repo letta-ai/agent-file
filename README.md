@@ -69,7 +69,7 @@ const client = new LettaClient({ baseUrl: "http://localhost:8283" });
 
 // Import your .af file from any location
 const file = new Blob([readFileSync('/path/to/agent/file.af')])
-const agentState = await client.agents.importAgentSerialized(file, {})
+const agentState = await client.agents.importFile(file, {})
 
 console.log(`Imported agent: ${agentState.id}`);
 ```
@@ -84,9 +84,9 @@ from letta_client import Letta
 client = Letta(base_url="http://localhost:8283")
 
 # Import your .af file from any location
-agent_state = client.agents.import_agent_serialized(file=open("/path/to/agent/file.af", "rb"))
+agent_state = client.agents.import_file(file=open("/path/to/agent/file.af", "rb"))
 
-print(f"Imported agent: {agent.id}")
+print(f"Imported agent: {agent_state.id}")
 ```
 
 ### Exporting Agents 
@@ -113,7 +113,7 @@ import { LettaClient } from '@letta-ai/letta-client'
 const client = new LettaClient({ baseUrl: "http://localhost:8283" });
 
 // Export your agent into a serialized schema object (which you can write to a file)
-const schema = await client.agents.exportAgentSerialized("<AGENT_ID>");
+const schema = await client.agents.exportFile("<AGENT_ID>");
 ```
 
 #### Python
@@ -126,7 +126,7 @@ from letta_client import Letta
 client = Letta(base_url="http://localhost:8283")
 
 # Export your agent into a serialized schema object (which you can write to a file)
-schema = client.agents.export_agent_serialized(agent_id="<AGENT_ID>")
+schema = client.agents.export_file(agent_id="<AGENT_ID>")
 ```
 
 ## FAQ
