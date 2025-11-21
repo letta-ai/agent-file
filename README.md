@@ -37,7 +37,6 @@ To use one of the agents, download the agent file (`.af`) by clicking the link b
 | 📚 **Deep Research** | A research agent with planning, search, and memory tools to enable writing deep research reports from iterative research <br />⚠️ *NOTE: requires [Tavily](https://tavily.com/) and [Firecrawl](https://www.firecrawl.dev/) keys* | [Download](https://letta-agent-files.s3.us-east-1.amazonaws.com/deep_research_agent.af) | [README](./deep_research_agent) |
 | 🧑‍💼 **Customer Support** | A customer support agent that has dummy tools for handling order cancellations, looking up order status, and also memory | [Download](https://letta-agent-files.s3.us-east-1.amazonaws.com/customer_service.af) | [README](./customer_service_agent) |
 | 🕸️ **Stateless Workflow** | A stateless graph workflow agent (no memory and deterministic tool calling) that evaluates recruiting candidates and drafts emails | [Download](https://letta-agent-files.s3.us-east-1.amazonaws.com/outreach_workflow_agent.af) | [README](./workflow_agent) | 
-| 🐙 **Composio Tools** | An example of an agent that uses a Composio tool to star a GitHub repository <br />⚠️ *Note: requires enabling [Composio](https://docs.letta.com/guides/agents/composio)* | [Download](https://letta-agent-files.s3.us-east-1.amazonaws.com/composio_github_star_agent.af) | [README](./composio_github_star_agent) |
 
 ## Using `.af` with Letta
 
@@ -59,7 +58,7 @@ curl -X POST "http://localhost:8283/v1/agents/import" -F "file=/path/to/agent/fi
 #### Node.js (TypeScript)
 
 ```ts
-// Install SDK with `npm install @letta-ai/letta-client`
+// Install SDK with `npm install @letta-ai/letta-client@^1.0.0`
 import { LettaClient } from '@letta-ai/letta-client'
 import { readFileSync } from 'fs';
 import { Blob } from 'buffer';
@@ -69,7 +68,7 @@ const client = new LettaClient({ baseUrl: "http://localhost:8283" });
 
 // Import your .af file from any location
 const file = new Blob([readFileSync('/path/to/agent/file.af')])
-const agentState = await client.agents.importAgentSerialized(file, {})
+const agentState = await client.agents.importFile(file, {})
 
 console.log(`Imported agent: ${agentState.id}`);
 ```
@@ -77,16 +76,16 @@ console.log(`Imported agent: ${agentState.id}`);
 #### Python
 
 ```python
-# Install SDK with `pip install letta-client`
+# Install SDK with `pip install letta-client>=1.0.0`
 from letta_client import Letta
 
 # Assuming a Letta Server is running at http://localhost:8283
 client = Letta(base_url="http://localhost:8283")
 
 # Import your .af file from any location
-agent_state = client.agents.import_agent_serialized(file=open("/path/to/agent/file.af", "rb"))
+agent_state = client.agents.import_file(file=open("/path/to/agent/file.af", "rb"))
 
-print(f"Imported agent: {agent.id}")
+print(f"Imported agent: {agent_state.id}")
 ```
 
 ### Exporting Agents 
@@ -106,27 +105,27 @@ curl -X GET http://localhost:8283/v1/agents/{AGENT_ID}/export
 #### Node.js (TypeScript)
 
 ```ts
-// Install SDK with `npm install @letta-ai/letta-client`
+// Install SDK with `npm install @letta-ai/letta-client@^1.0.0`
 import { LettaClient } from '@letta-ai/letta-client'
 
 // Assuming a Letta Server is running at http://localhost:8283
 const client = new LettaClient({ baseUrl: "http://localhost:8283" });
 
 // Export your agent into a serialized schema object (which you can write to a file)
-const schema = await client.agents.exportAgentSerialized("<AGENT_ID>");
+const schema = await client.agents.exportFile("<AGENT_ID>");
 ```
 
 #### Python
 
 ```python
-# Install SDK with `pip install letta-client`
+# Install SDK with `pip install letta-client>=1.0.0`
 from letta_client import Letta
 
 # Assuming a Letta Server is running at http://localhost:8283
 client = Letta(base_url="http://localhost:8283")
 
 # Export your agent into a serialized schema object (which you can write to a file)
-schema = client.agents.export_agent_serialized(agent_id="<AGENT_ID>")
+schema = client.agents.export_file(agent_id="<AGENT_ID>")
 ```
 
 ## FAQ

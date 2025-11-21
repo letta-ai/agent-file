@@ -1,7 +1,7 @@
 import os
 import json
 from dotenv import load_dotenv
-import letta_client
+from letta_client import Letta
 from rich import print
 from rich.markdown import Markdown
 from research_tools import register_tools, setup_exa_mcp_server
@@ -14,10 +14,9 @@ register_tools()
 exa_tool_ids = setup_exa_mcp_server()
 
 # Initialize the Letta client
-base_url = os.getenv("LETTA_BASE_URL")
-token = os.getenv("LETTA_API_KEY")
-print(f"Connecting to Letta server at {base_url}")
-client = letta_client.Letta(base_url=base_url, token=token)
+api_key = os.getenv("LETTA_API_KEY")
+print(f"Connecting to Letta server")
+client = Letta(api_key=api_key)
 TASK = """
 Please write a research report on postgres and its ecosystem.
 """

@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-client = Letta(base_url="https://api.letta.com", token=os.getenv("LETTA_API_KEY"))
+client = Letta(api_key=os.getenv("LETTA_API_KEY"))
 
 def terminate_chat(reason: str):
     """
