@@ -59,7 +59,7 @@ curl -X POST "http://localhost:8283/v1/agents/import" -F "file=/path/to/agent/fi
 #### Node.js (TypeScript)
 
 ```ts
-// Install SDK with `npm install @letta-ai/letta-client`
+// Install SDK with `npm install @letta-ai/letta-client@^1.0.0`
 import { LettaClient } from '@letta-ai/letta-client'
 import { readFileSync } from 'fs';
 import { Blob } from 'buffer';
@@ -77,7 +77,7 @@ console.log(`Imported agent: ${agentState.id}`);
 #### Python
 
 ```python
-# Install SDK with `pip install letta-client`
+# Install SDK with `pip install letta-client>=1.0.0`
 from letta_client import Letta
 
 # Assuming a Letta Server is running at http://localhost:8283
@@ -106,7 +106,7 @@ curl -X GET http://localhost:8283/v1/agents/{AGENT_ID}/export
 #### Node.js (TypeScript)
 
 ```ts
-// Install SDK with `npm install @letta-ai/letta-client`
+// Install SDK with `npm install @letta-ai/letta-client@^1.0.0`
 import { LettaClient } from '@letta-ai/letta-client'
 
 // Assuming a Letta Server is running at http://localhost:8283
@@ -119,7 +119,7 @@ const schema = await client.agents.exportAgentSerialized("<AGENT_ID>");
 #### Python
 
 ```python
-# Install SDK with `pip install letta-client`
+# Install SDK with `pip install letta-client>=1.0.0`
 from letta_client import Letta
 
 # Assuming a Letta Server is running at http://localhost:8283
