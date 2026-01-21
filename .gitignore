@@ -69,3 +69,6 @@ next-env.d.ts
 # System
 .DS_Store
 *.pem
+
+# Build artifacts - synced during build
+/public/agents
