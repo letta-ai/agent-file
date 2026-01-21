@@ -11,8 +11,8 @@ export function AgentHeader({ agent }: AgentHeaderProps) {
   const { name, author, imagePath, ownerId, agentKey } = agent;
   
   // GitHub URLs
-  const downloadUrl = `https://raw.githubusercontent.com/letta-ai/agentfile.directory/main/src/agents/${ownerId}/${agentKey}/${agentKey}.af`;
-  const githubUrl = `https://github.com/letta-ai/agentfile.directory/tree/main/src/agents/${ownerId}/${agentKey}`;
+  const downloadUrl = `https://raw.githubusercontent.com/letta-ai/agentfile.directory/main/agents/${ownerId}/${agentKey}/${agentKey}.af`;
+  const githubUrl = `https://github.com/letta-ai/agentfile.directory/tree/main/agents/${ownerId}/${agentKey}`;
 
   return (
     <div className="pt-[40px]">

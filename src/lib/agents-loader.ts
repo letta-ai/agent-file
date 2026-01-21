@@ -23,7 +23,7 @@ export interface AgentFull extends AgentMetadata {
   sources: any[];
 }
 
-const AGENTS_DIR = path.join(process.cwd(), 'src/agents');
+const AGENTS_DIR = path.join(process.cwd(), 'agents');
 
 /**
  * Get all owner directories in src/agents/
