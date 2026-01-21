@@ -1,7 +1,6 @@
-.niceGridDisplayContainer {
+.nice-grid-display {
   display: grid;
-  width: 100%;
-  gap: 16px;
-  grid-template-columns: repeat(auto-fill, var(--grid-item-width));
-  grid-auto-rows: var(--grid-item-height);
+  grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
+  grid-gap: 16px 16px;
+  box-sizing: border-box;
 }

@@ -76,9 +76,11 @@ function BlockViewer(props: BlockViewerProps) {
         {displayElements.map((element, index) => (
           <div key={index} className="border rounded p-4">
             {element.label && (
-              <Typography variant="body2" bold>
-                {element.label}
-              </Typography>
+              <VStack>
+                  <Typography variant="body2" bold>
+                      {element.label}
+                  </Typography>
+              </VStack>
             )}
             <Typography variant="body2" color="lighter" className="whitespace-pre-wrap break-words">
               {element.value.length > 200
@@ -203,46 +205,6 @@ function Switcher(props: SwitcherProps) {
   }
 }
 
-interface DetailProps {
-  label: string;
-  value: React.ReactNode;
-}
-
-function Detail(props: DetailProps) {
-  const { label, value } = props;
-  return (
-    <VStack gap="small" fullWidth>
-      <Typography variant="body3" color="lighter">
-        {label}
-      </Typography>
-      <Typography variant="body3">{value}</Typography>
-    </VStack>
-  );
-}
-
-interface DetailsOverlayProps {
-  agent: AgentFull;
-}
-
-function DetailsOverlay(props: DetailsOverlayProps) {
-  const { agent } = props;
-
-  return (
-    <VStack gap="xlarge" padding border className="rounded">
-      <HStack>
-        <Detail label="Distributor" value={agent.author} />
-        <Detail label="Agent Key" value={agent.agentKey} />
-      </HStack>
-      {agent.blocks && agent.blocks.length > 0 && (
-        <HStack>
-          <Detail label="Memory Blocks" value={agent.blocks.length} />
-          <Detail label="Tools" value={agent.tools?.length || 0} />
-        </HStack>
-      )}
-    </VStack>
-  );
-}
-
 export function AgentDetails(props: AgentDetailsProps) {
   const { agent } = props;
   const [selectedTab, setSelectedTab] = useState<Tabs>('overview');
@@ -255,9 +217,6 @@ export function AgentDetails(props: AgentDetailsProps) {
         </div>
         <div className="gap-[32px] py-[32px] flex flex-col">
           <Switcher selectedTab={selectedTab} agent={agent} />
-        </div>
-        <div className="pb-6 sticky top-[80px]" style={{ float: 'right', width: '280px', marginTop: '-600px' }}>
-          <DetailsOverlay agent={agent} />
         </div>
       </div>
     </CenterContent>

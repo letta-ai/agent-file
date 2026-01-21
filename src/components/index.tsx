@@ -9,4 +9,5 @@ export type { VStackProps } from './VStack';
 export { NiceGridDisplay } from './NiceGridDisplay';
 export { StackPrimitive } from './StackPrimitive';
 export type { StackPrimitiveProps } from './StackPrimitive';
+export { LettaLoader } from './LettaLoader';
 export { cn } from './utils';

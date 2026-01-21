@@ -21,23 +21,24 @@ export function AgentFileCard(props: AgentFileCardProps) {
   const imageSrc = propImageSrc || agent.imageSrc;
 
   return (
-    <VStack gap={null}>
+    <VStack gap={false}>
       <VStack
         color="background-grey3"
         as="a"
+        rounded="large"
         href={`/agents/${author}/${agentKey}`}
         padding="small"
         border
       >
         {imageSrc && (
-          <Image
-            src={imageSrc}
-            alt={name}
-            width="300"
-            height="300"
-            /* eslint-disable-next-line react/forbid-component-props */
-            style={{ width: '100%', height: 'auto' }}
-          />
+          <div className="relative w-full rounded-sm aspect-square overflow-hidden">
+            <Image
+              src={imageSrc}
+              alt={name}
+              fill
+              className="object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
         )}
         <HStack>
           <VStack gap={false}>

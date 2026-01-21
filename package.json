@@ -45,6 +45,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.71.1",
+    "react-lottie": "^1.2.10",
     "react-markdown": "^10.1.0",
     "react-syntax-highlighter": "^16.1.0",
     "react-virtualized-auto-sizer": "^2.0.2",
@@ -66,12 +67,14 @@
     "@types/node": "^22.10.5",
     "@types/react": "^19.0.6",
     "@types/react-dom": "^19.0.2",
+    "@types/react-lottie": "^1.2.10",
     "autoprefixer": "^10.4.20",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8.4.49",
     "sass": "^1.83.4",
     "tailwindcss": "^3.4.17",
+    "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.7.3"
   }
 }

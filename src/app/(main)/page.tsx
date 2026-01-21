@@ -3,6 +3,7 @@ import {
   NiceGridDisplay,
   Typography,
   VStack,
+  LettaLoader,
 } from '@/components';
 import { Section } from '@/lib/client/components/Section/Section';
 import React, { Fragment } from 'react';
@@ -17,8 +18,7 @@ async function AllAgentsSection() {
   const featuredAgentfiles = [
     {
       description: 'I\'m Loop. I remember.',
-      summary:
-        'I\'m Loop. I remember. Direct. Dry. No "helpful assistant" energy.',
+      summary: 'I\'m Loop. I remember. Direct. Dry. No "helpful assistant" energy.',
       name: 'Loop',
       agentKey: 'loop',
       author: '@letta-ai',
@@ -27,7 +27,7 @@ async function AllAgentsSection() {
   ];
 
   return (
-    <>
+    <VStack gap="2xlarge">
       <Section title="Featured Agents">
         <NiceGridDisplay itemWidth="292px" itemHeight="155px">
           {featuredAgentfiles.map((agent) => (
@@ -53,7 +53,7 @@ async function AllAgentsSection() {
           ))}
         </NiceGridDisplay>
       </Section>
-    </>
+    </VStack>
   );
 }
 
@@ -66,9 +66,12 @@ export default async function Index() {
           className="max-w-[800px] p-6 largerThanMobile:p-[56px] w-full items-center"
         >
           <HStack gap="xlarge" align="center" fullHeight>
+            <div className="flex items-center justify-center aspect-square">
+              <LettaLoader  size="large" />
+            </div>
             <VStack>
-              <Typography variant="heading1" align="center">
-                Letta Agent Directory
+              <Typography variant="heading1" >
+                Agentfile Directory
               </Typography>
               <HStack align="center">
                 <Typography variant="large">Discover and share stateful AI agents</Typography>

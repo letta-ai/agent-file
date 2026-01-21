@@ -60,8 +60,8 @@ export function Header(props: HeaderProps) {
             label={"API"}
             href="https://docs.letta.com/api-reference/overview"
           />
-          <a href="https://app.letta.com/" target="_blank" rel="noopener noreferrer" className="px-4 py-2 border rounded hover:bg-gray-50">
-            <Typography variant="body2">{"Agent Dev Environment"}</Typography>
+          <a href="https://app.letta.com/" target="_blank" rel="noopener noreferrer" className="px-4 py-2 border rounded">
+            <Typography variant="body2">Letta Platform</Typography>
           </a>
         </HStack>
       </HStack>

@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation';
 import { AgentHeader } from '../../_components/AgentHeader';
 import { AgentDetails } from '../../_components/AgentDetails';
 import { Header } from '@/lib/client/components/Header/Header';
+import { DirectoryFooter } from '@/lib/client/components/DirectoryFooter/DirectoryFooter';
 
 interface AgentPageProps {
   params: Promise<{
@@ -34,14 +35,13 @@ export default async function AgentPage({ params }: AgentPageProps) {
   }
   
   return (
-    <>
-      <Header />
-      <AgentHeader
-        name={agent.name}
-        author={agent.author}
-        agentId={`${ownerId}/${agentKey}`}
-      />
-      <AgentDetails agent={agent} />
-    </>
+    <div className="min-h-screen flex flex-col">
+      <div className="flex-grow">
+        <Header />
+        <AgentHeader agent={agent} />
+        <AgentDetails agent={agent} />
+      </div>
+      <DirectoryFooter />
+    </div>
   );
 }

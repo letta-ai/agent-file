@@ -4,34 +4,40 @@ import {
   VStack,
 } from '@/components';
 
-export interface SectionProps {
+interface SectionProps {
   title: string;
-  children: React.ReactNode;
   seeMoreLink?: string;
   count?: string;
-  cta?: {
-    label: string;
-    href: string;
-  };
+  children: React.ReactNode;
 }
 
 export function Section(props: SectionProps) {
-  const { title, children, seeMoreLink, count, cta } = props;
+  const { title, seeMoreLink, count, children } = props;
 
   return (
-    <VStack gap="large">
-      <HStack justify="spaceBetween" align="center">
+    <VStack>
+      <HStack align="center">
         <HStack align="center" gap="large">
-          <Typography variant="heading5">{title}</Typography>
+          <Typography variant="large" bold>
+            {title}
+          </Typography>
           {count && (
-            <div className="border rounded-sm px-2 py-1 text-sm">
-              {count}
+            <div className="border rounded-sm px-1 h-[22px] flex items-center justify-center">
+              <Typography variant="body3" bold>
+                {count}
+              </Typography>
             </div>
           )}
         </HStack>
-        {(seeMoreLink || cta) && (
-          <a href={seeMoreLink || cta?.href} className="text-sm hover:underline">
-            {cta?.label || 'See all'} →
+        {seeMoreLink && (
+          <a 
+            href={seeMoreLink}
+            className="flex items-center gap-1 hover:underline"
+          >
+            <Typography variant="body" bold>
+              See all
+            </Typography>
+            <span>→</span>
           </a>
         )}
       </HStack>

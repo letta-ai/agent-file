@@ -45,7 +45,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
               name="q"
               placeholder="Search for agents..."
               defaultValue={query}
-              className="w-full px-4 py-2 border rounded-md"
+              className="w-full bg-transparent px-4 py-2 border rounded-md"
             />
           </form>
           
