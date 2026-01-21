@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run sync-agents && next build",
+    "sync-agents": "rsync -av --delete agents/ public/agents/ || cp -r agents/* public/agents/",
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit"
