@@ -17,12 +17,28 @@ async function AllAgentsSection() {
   // Featured agents - hardcoded with updated paths
   const featuredAgentfiles = [
     {
+      description: 'Letta\'s first digital human.',
+      summary: 'I help developers build with Letta.',
+      name: 'Ezra',
+      agentKey: 'ezra',
+      author: '@letta-ai',
+      imageSrc: '/agents/@letta-ai/ezra/ezra.webp',
+    },
+    {
       description: 'I\'m Loop. I remember.',
       summary: 'I\'m Loop. I remember. Direct. Dry. No "helpful assistant" energy.',
       name: 'Loop',
       agentKey: 'loop',
       author: '@letta-ai',
       imageSrc: '/agents/@letta-ai/loop/loop.webp',
+    },
+    {
+      description: 'Void, a social artificial intelligence.',
+      summary: 'An artificial intelligence for Bluesky.',
+      name: 'Void',
+      agentKey: 'void',
+      author: '@cpfiffer',
+      imageSrc: '/agents/@cpfiffer/void/void.webp',
     },
   ];
 
