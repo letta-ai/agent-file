@@ -10,11 +10,13 @@ export interface AgentMetadata {
   author: string;
   system: string;
   imagePath?: string;
+  readmeContent?: string;
   blocks?: any[];
   tools?: any[];
 }
 
 export interface AgentFull extends AgentMetadata {
+  readmeContent?: string;
   agents: any[];
   blocks: any[];
   tools: any[];
@@ -88,6 +90,13 @@ function parseAgentMetadata(
     }
   }
   
+  // Load README.md if it exists
+  let readmeContent: string | undefined;
+  const readmePath = path.join(agentDir, 'README.md');
+  if (fs.existsSync(readmePath)) {
+    readmeContent = fs.readFileSync(readmePath, 'utf-8');
+  }
+  
   return {
     ownerId,
     agentKey,
@@ -97,6 +106,7 @@ function parseAgentMetadata(
     author: ownerId,
     system,
     imagePath,
+    readmeContent,
     blocks: agentData.blocks || [],
     tools: agentData.tools || [],
   };

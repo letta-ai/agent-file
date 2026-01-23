@@ -64,7 +64,7 @@ export function AgentHeader({ agent }: AgentHeaderProps) {
           </HStack>
         </div>
       </CenterContent>
-      <div className="absolute pointer-events-none bg-background-grey h-[254px] w-[100dvw] border-b border-border z-[0] top-0 left-0" />
+      <div className="absolute pointer-events-none bg-background-grey h-[237px] w-[100dvw] border-b border-border z-[0] top-0 left-0" />
     </div>
   );
 }

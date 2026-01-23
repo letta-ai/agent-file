@@ -3,6 +3,7 @@ import {
   Typography,
 } from '@/components';
 import type { TypographyProps } from '@/components';
+import {Logo} from "@/components/Logo";
 
 interface HeaderLinkProps {
   href: string;
@@ -47,7 +48,8 @@ export function Header(props: HeaderProps) {
         align="center"
       >
         <HStack href="/" as="a" align="center">
-          <Typography bold variant="heading6">agentfile.directory</Typography>
+          <Logo size="small" />
+          <Typography bold variant="heading6" className="bg-gray-900">agentfile.directory</Typography>
         </HStack>
         <HStack gap="large" align="center">
           <HeaderLink
@@ -60,7 +62,7 @@ export function Header(props: HeaderProps) {
             label={"API"}
             href="https://docs.letta.com/api-reference/overview"
           />
-          <a href="https://app.letta.com/" target="_blank" rel="noopener noreferrer" className="px-4 py-2 border rounded">
+          <a href="https://app.letta.com/" target="_blank" rel="noopener noreferrer" className="px-4 py-1 bg-gray-900 border rounded">
             <Typography variant="body2">Letta Platform</Typography>
           </a>
         </HStack>
