@@ -1,4 +1,0 @@
-- Item one
-  - `code` - with dash content
-  - Normal nested item
-  - And more items...
