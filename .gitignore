@@ -24,9 +24,37 @@ wheels/
 .installed.cfg
 *.egg
 
+# Node.js / Next.js
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+/.next/
+/out/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+/coverage
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Build output
+/build
+
 # Environment variables
 .env
 .env.local
+.env*.local
+
+# Vercel
+.vercel
+
+# NX
+.nx
 
 # Letta
 .letta/
@@ -37,4 +65,10 @@ wheels/
 *.swp
 *.swo
 *~
+
+# System
 .DS_Store
+*.pem
+
+# Build artifacts - synced during build
+/public/agents

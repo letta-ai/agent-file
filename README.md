@@ -25,6 +25,24 @@
 
 Agent Files package all components of a stateful agent: system prompts, editable memory (personality and user information), tool configurations (code and schemas), and LLM settings. By standardizing these elements in a single format, Agent File enables seamless transfer between compatible frameworks, while allowing for easy checkpointing and version control of agent state.
 
+## Browsing Agents
+
+Each agent in this directory has been trained and tuned for specific purposes. You can explore them at:
+
+```text
+agents/
+└── @{owner}/
+    └── {agent-name}/
+        ├── {agent-name}.af    # The agent file
+        └── {agent-name}.webp  # Avatar image
+```
+
+### Featured Agents
+
+| Agent | Author | Description |
+|-------|--------|-------------|
+| [Loop](agents/@letta-ai/loop/) | @letta-ai | A ChatGPT alternative focused on memory. Direct, dry, remembers everything. |
+
 ## 👾 Download Example Agents
 
 Browse our collection of ready-to-use agents below. Each agent has a direct download link (to download the `.af` file) and a separate instructions README with a guide on how to use the agent. To contribute your own Agent File to the repo, simply [open a pull request](https://github.com/letta-ai/agent-file/compare)!
@@ -38,26 +56,36 @@ To use one of the agents, download the agent file (`.af`) by clicking the link b
 | 🧑‍💼 **Customer Support** | A customer support agent that has dummy tools for handling order cancellations, looking up order status, and also memory | [Download](https://letta-agent-files.s3.us-east-1.amazonaws.com/customer_service.af) | [README](./customer_service_agent) |
 | 🕸️ **Stateless Workflow** | A stateless graph workflow agent (no memory and deterministic tool calling) that evaluates recruiting candidates and drafts emails | [Download](https://letta-agent-files.s3.us-east-1.amazonaws.com/outreach_workflow_agent.af) | [README](./workflow_agent) | 
 
-## Using `.af` with Letta
+## Deploying an Agent
 
-You can import and export `.af` files to and from any Letta Server (self-deployed with [Docker](https://docs.letta.com/quickstart/docker) or [Letta Desktop](https://docs.letta.com/quickstart/desktop), or via [Letta Cloud](https://docs.letta.com/quickstart/cloud)). To run the import and export commands, you can use the visual Agent Development Environment ([ADE](https://docs.letta.com/agent-development-environment)), or the [REST APIs](https://docs.letta.com/api-reference/overview) or [developer SDKs](https://docs.letta.com/api-reference/overview) (Python and TypeScript).
+You can deploy any agent file to your own Letta server using the ADE, REST API, or SDK.
 
-### Importing Agents
+### Using the Agent Development Environment (ADE)
 
-Load downloaded `.af` files into your ADE to easily re-create your agent: 
+1. Download the `.af` file from this repository
+2. Open [Letta ADE](https://app.letta.com)
+3. Click "Import Agent" and select the file
 
 ![Importing Demo](./assets/import_demo.gif)
 
-#### cURL
+### Using the Python SDK
 
-```sh
+```python
+# Install SDK with `pip install letta-client>=1.0.0`
+from letta_client import Letta
+
 # Assuming a Letta Server is running at http://localhost:8283
-curl -X POST "http://localhost:8283/v1/agents/import" -F "file=/path/to/agent/file.af"
+client = Letta(base_url="http://localhost:8283")
+
+# Import your .af file from any location
+agent_state = client.agents.import_file(file=open("/path/to/agent/file.af", "rb"))
+
+print(f"Imported agent: {agent_state.id}")
 ```
 
-#### Node.js (TypeScript)
+### Using the TypeScript SDK
 
-```ts
+```typescript
 // Install SDK with `npm install @letta-ai/letta-client@^1.0.0`
 import { LettaClient } from '@letta-ai/letta-client'
 import { readFileSync } from 'fs';
@@ -73,27 +101,41 @@ const agentState = await client.agents.importFile(file, {})
 console.log(`Imported agent: ${agentState.id}`);
 ```
 
-#### Python
+### Using cURL
 
-```python
-# Install SDK with `pip install letta-client>=1.0.0`
-from letta_client import Letta
-
+```sh
 # Assuming a Letta Server is running at http://localhost:8283
-client = Letta(base_url="http://localhost:8283")
-
-# Import your .af file from any location
-agent_state = client.agents.import_file(file=open("/path/to/agent/file.af", "rb"))
-
-print(f"Imported agent: {agent_state.id}")
+curl -X POST "http://localhost:8283/v1/agents/import" -F "file=/path/to/agent/file.af"
 ```
+
+## Contributing an Agent
+
+Have an agent you've trained and want to share? We'd love to include it.
+
+### Quick Start
+
+1. **Fork this repository**
+
+2. **Create your agent directory:**
+   ```
+   agents/@{your-github-handle}/{agent-name}/
+   ```
+
+3. **Export your agent** from Letta using the ADE or via the API (see [Exporting Agents](#exporting-agents) below)
+
+4. **Add required files:**
+   - `{agent-name}.af` — Your exported agent file
+   - `{agent-name}.webp` — Square avatar image
+
+5. **Submit a pull request**
+
+See [agents/CONTRIBUTING.md](agents/CONTRIBUTING.md) for detailed guidelines.
 
 ### Exporting Agents 
 
 You can export your own `.af` files to share (or contribute!) by selecting "Export Agent" in the ADE: 
 
 ![Exporting Demo](./assets/export_demo.gif)
-
 
 #### cURL
 
@@ -171,14 +213,32 @@ For implementation details or to contribute to Agent File, join our [Discord com
 
 Agents have associated secrets for tool execution in Letta (see [docs](https://docs.letta.com/guides/agents/tool-variables)). When you export agents with secrets, the secrets are set to `null`.
 
-## 🤝 Contributing
+## Why Share Trained Agents?
 
-We're just launching Agent File and would love your help in shaping its future:
+Training an agent takes time. You teach it your knowledge embedded in these agents
 
-- **Share Example Agents**: Contribute your own `.af` files by [opening a pull request](https://github.com/letta-ai/agent-file/compare) with your agent and usage instructions
-- **Join the Discussion**: Connect with other agent developers in our [Discord server](https://discord.gg/letta) to share ideas and agent files
-- **Provide Feedback**: Open [GitHub issues](https://github.com/letta-ai/agent-file/issues) with suggestions, feature requests, or to report compatibility challenges
-- **Help Refine the Format**: As an emerging format, Agent File will evolve based on community input and real-world usage
+Think of preferences, correct its mistakes, build up its context. That investment has value.
+
+By sharing trained agents:
+
+- **Users** get agents that already know how to be helpful in specific domains
+- **Creators** can distribute agents they've refined over weeks or months
+- **Everyone** benefits from the collective it like sharing a well-configured tool — except this tool remembers how to use itself.
+
+## Local Development
+
+```bash
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
+
+# Build for production (syncs agents automatically)
+npm run build
+```
+
+The web frontend displays all agents in the `agents/` directory. During build, agent files are synced to `public/agents/` for static serving.
 
 ## Roadmap 
 - [ ] Support MCP servers/configs
