@@ -43,19 +43,6 @@ agents/
 |-------|--------|-------------|
 | [Loop](agents/@letta-ai/loop/) | @letta-ai | A ChatGPT alternative focused on memory. Direct, dry, remembers everything. |
 
-## 👾 Download Example Agents
-
-Browse our collection of ready-to-use agents below. Each agent has a direct download link (to download the `.af` file) and a separate instructions README with a guide on how to use the agent. To contribute your own Agent File to the repo, simply [open a pull request](https://github.com/letta-ai/agent-file/compare)!
-
-To use one of the agents, download the agent file (`.af`) by clicking the link below, then upload it to [Letta](https://docs.letta.com) or any other framework that supports Agent File.
-
-|        Agent Type            | Description | Download | Instructions |
-|------------------------------|------------|----------|-------------|
-| 🧠 **MemGPT**          | An agent with memory management tools for infinite context, as described in the [MemGPT paper](https://research.memgpt.ai/). Two example files: a fresh agent and one with an existing conversation history (pre-fill). | [Download (empty)](https://letta-agent-files.s3.us-east-1.amazonaws.com/memgpt_agent.af) [Download (pre-fill)](https://letta-agent-files.s3.us-east-1.amazonaws.com/memgpt_agent_with_convo.af) | [README](./memgpt_agent) |
-| 📚 **Deep Research** | A research agent with planning, search, and memory tools to enable writing deep research reports from iterative research <br />⚠️ *NOTE: requires [Tavily](https://tavily.com/) and [Firecrawl](https://www.firecrawl.dev/) keys* | [Download](https://letta-agent-files.s3.us-east-1.amazonaws.com/deep_research_agent.af) | [README](./deep_research_agent) |
-| 🧑‍💼 **Customer Support** | A customer support agent that has dummy tools for handling order cancellations, looking up order status, and also memory | [Download](https://letta-agent-files.s3.us-east-1.amazonaws.com/customer_service.af) | [README](./customer_service_agent) |
-| 🕸️ **Stateless Workflow** | A stateless graph workflow agent (no memory and deterministic tool calling) that evaluates recruiting candidates and drafts emails | [Download](https://letta-agent-files.s3.us-east-1.amazonaws.com/outreach_workflow_agent.af) | [README](./workflow_agent) | 
-
 ## Deploying an Agent
 
 You can deploy any agent file to your own Letta server using the ADE, REST API, or SDK.
