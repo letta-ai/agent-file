@@ -54,6 +54,11 @@ export function Header(props: HeaderProps) {
         <HStack gap="large" align="center">
           <HeaderLink
             color={variant === 'white' ? 'white' : 'default'}
+            label={"Contribute"}
+            href="https://github.com/letta-ai/agent-file/blob/main/agents/CONTRIBUTING.md"
+          />
+          <HeaderLink
+            color={variant === 'white' ? 'white' : 'default'}
             label={"Docs"}
             href="https://docs.letta.com/"
           />
