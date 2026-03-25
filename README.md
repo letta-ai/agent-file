@@ -1,3 +1,5 @@
+[![MSeeP.ai Security Assessment Badge](https://mseep.net/pr/letta-ai-agent-file-badge.png)](https://mseep.ai/app/letta-ai-agent-file)
+
 <a href="https://docs.letta.com/">
   <img alt="Agent File (.af): An open standard file format for stateful agents." src="/assets/agentfile.png">
 </a>
