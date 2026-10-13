@@ -212,21 +212,6 @@ By sharing trained agents:
 - **Creators** can distribute agents they've refined over weeks or months
 - **Everyone** benefits from the collective it like sharing a well-configured tool — except this tool remembers how to use itself.
 
-## Local Development
-
-```bash
-# Install dependencies
-npm install
-
-# Run the development server
-npm run dev
-
-# Build for production (syncs agents automatically)
-npm run build
-```
-
-The web frontend displays all agents in the `agents/` directory. During build, agent files are synced to `public/agents/` for static serving.
-
 ## Roadmap 
 - [ ] Support MCP servers/configs
 - [ ] Support archival memory passages

@@ -150,14 +150,11 @@ cp /path/to/your-agent.af agents/@your-handle/your-agent/your-agent.af
 cp /path/to/avatar.webp agents/@your-handle/your-agent/your-agent.webp
 ```
 
-### 4. Test Locally
+### 4. Review Your Files
 
-```bash
-npm install
-npm run dev
-```
-
-Visit `http://localhost:3000` and verify your agent appears correctly.
+Before opening a pull request, verify that the agent file contains no personal
+information or secrets and that every required file follows the naming rules
+above.
 
 ### 5. Commit and Push
 

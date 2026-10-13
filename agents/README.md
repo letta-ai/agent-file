@@ -28,23 +28,11 @@ agents/
 
 1. Create a directory: `agents/{ownerId}/{agentKey}/`
 2. Add your `.af` file: `{agentKey}.af`
-3. Add your avatar: `{agentKey}.webp` (square image, will be cropped to 1:1)
-4. The build process automatically syncs `agents/` → `public/agents/`
-5. Build will automatically discover and generate pages for all agents
-
-### Automated Sync
-
-The sync from `agents/` to `public/agents/` happens automatically:
-
-- **Local**: `npm run build` runs `npm run sync-agents` first
-- **Vercel**: The build command includes the sync step
-- **Manual**: `npm run sync-agents` or `./sync-agents.sh`
-
-The sync uses `rsync` with fallback to `cp` for compatibility.
+3. Add your avatar: `{agentKey}.webp` (square image)
 
 ## Notes
 
 - The `ownerId` should include the `@` symbol (e.g., `@letta-ai`)
 - The `agentKey` should be URL-safe (lowercase, hyphens okay)
-- Avatar images are displayed as squares with `object-cover` cropping
+- Avatar images should be square
 - Agent files must be valid JSON matching the `.af` schema
